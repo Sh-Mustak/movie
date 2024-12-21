@@ -1,7 +1,19 @@
-import React from "react";
+"use client";
+import { getSearchMovies } from "@/utils/api";
+import SearchResults from "@/app/searchresult/page";
+import useSearchContext from "@/app/context/Context";
+import { useEffect } from "react";
 
 export default function HeroSection() {
-  return (
+  const movies = [];
+  const { searchValue } = useSearchContext();
+  // Fetch movies
+  console.log(searchValue);
+
+  // Return the appropriate UI based on movie data
+  return movies.length > 0 ? (
+    <SearchResults movies={movies} />
+  ) : (
     <div
       id="hero"
       className="relative h-screen"

@@ -1,6 +1,7 @@
 import Loading from "@/components/Loading";
 import { getSimilarMovies } from "@/utils/api";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default async function MoreLikeThis({ movieId }) {
@@ -12,20 +13,19 @@ export default async function MoreLikeThis({ movieId }) {
       <div class="flex space-x-4 overflow-x-auto pb-4">
         <Loading />
         {similarMovies.results.map((movie) => (
-          <div
-            key={movie.id}
-            class="flex-shrink-0 w-48 cursor-pointer hover:scale-105 transition-transform"
-          >
-            <a href="details.html">
-              <Image
-                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                alt="The Good German"
-                class="w-full rounded-lg"
-                height={288}
-                width={192}
-              />
-            </a>
-          </div>
+          <Link key={movie.id} href={`/movie/${movie.id}`}>
+            <div class="flex-shrink-0 w-48 cursor-pointer hover:scale-105 transition-transform">
+              <a href="details.html">
+                <Image
+                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                  alt="The Good German"
+                  class="w-full rounded-lg"
+                  height={288}
+                  width={192}
+                />
+              </a>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

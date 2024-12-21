@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
+import SearchProvider from "./provider/SearchProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,8 +25,11 @@ export default function RootLayout({ children }) {
       <body
         className={"bg-black text-white"}
       >
-        <Navbar />
-        {children}
+        <SearchProvider>
+          <Navbar />
+          {children}
+        </SearchProvider>
+
       </body>
     </html>
   );
