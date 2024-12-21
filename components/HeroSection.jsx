@@ -8,7 +8,7 @@ export default function HeroSection() {
   const movies = [];
   const { searchValue } = useSearchContext();
   // Fetch movies
-  console.log(searchValue);
+  // console.log(searchValue);
 
   // Return the appropriate UI based on movie data
   return movies.length > 0 ? (

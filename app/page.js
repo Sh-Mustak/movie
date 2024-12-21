@@ -1,12 +1,19 @@
 import HeroSection from "@/components/HeroSection";
 import MovieLists from "./movieList/page";
+import Test from "@/components/Test";
 
-export default function Home() {
+
+
+export default async function Home() {
 
   return (
     <>
-      <HeroSection />
-      <MovieLists />
+
+      <Test >
+        <HeroSection />
+        <MovieLists />
+      </Test>
+
     </>
 
   );

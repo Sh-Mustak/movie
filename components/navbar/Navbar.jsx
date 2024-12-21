@@ -2,13 +2,8 @@
 import React from "react";
 import Link from "next/link";
 import SearchMovies from "./SearchMovies";
-import { getSearchMovies } from "@/utils/api";
-// import useSearchContext from "@/app/context/Context";
 
 export default async function Navbar() {
-  // const movies = await getSearchMovies("avatar");
-  // console.log(movies[10].title);
-
   return (
     <nav className="fixed w-full z-50 bg-gradient-to-b from-black to-transparent">
       <div className="container mx-auto px-4 py-6 flex justify-between items-center">

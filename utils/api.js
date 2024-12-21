@@ -86,6 +86,7 @@ export const getSearchMovies = async (query) => {
                 Authorization: `Bearer ${TMDB_BEARER_TOKEN}`,
                 "Content-Type": "application/json",
             },
+            cache: "no-store",
         });
 
         if (!response.ok) {
