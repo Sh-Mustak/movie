@@ -25,7 +25,7 @@ export default function SearchResults({ searchValue }) {
                 {movies?.map((movie) => (
                     <Link
                         key={movie.id}
-                        href={`/details/${movie.id}`} // Update to dynamic details page route
+                        href={`/movie/${movie.id}`} // Update to dynamic details page route
                         className="bg-zinc-900 rounded-lg overflow-hidden hover:scale-105 transition-transform"
                     >
                         <Image

@@ -5,12 +5,11 @@ import SearchResults from "./searchresult/page";
 
 export default function Test({ children }) {
   const { searchValue } = useSearchContext();
-  console.log(searchValue);
-  const searchValuee = "avatar";
+
   return (
     <>
-      {searchValuee ? (
-        <SearchResults searchValue={searchValuee} />
+      {searchValue ? (
+        <SearchResults searchValue={searchValue} />
       ) : (
         <div>{children}</div>
       )}
