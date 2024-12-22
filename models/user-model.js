@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     lname: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    termsAccepted: { type: Boolean, required: true },
+    termsAccepted: { type: Boolean },
 });
 
 export const User = mongoose.models.User || mongoose.model("User", userSchema);

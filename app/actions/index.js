@@ -8,6 +8,8 @@ import { User } from "@/models/user-model";
 
 // Function to register a user and redirect
 export async function registerUser(formData) {
+    console.log(formData);
+
     const fname = formData.get("fname");
     const lname = formData.get("lname");
     const email = formData.get("email");

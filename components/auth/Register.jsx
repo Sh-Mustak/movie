@@ -42,8 +42,13 @@ export default function Register() {
 
       <div className="text-left text-moviedb-gray text-sm">
         <label className="flex items-center">
-          <input type="checkbox" name="cbox" className="mr-2" required />I agree
-          to the Terms of Service and Privacy Policy
+          <input
+            type="checkbox"
+            name="termsAccepted"
+            className="mr-2"
+            required
+          />
+          I agree to the Terms of Service and Privacy Policy
         </label>
       </div>
 
