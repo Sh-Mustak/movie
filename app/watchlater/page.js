@@ -1,9 +1,19 @@
+"use client"
 /* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import EmptyList from './EmptyList'
+import useAuthContext from '../context/AuthContext';
+
 
 export default function WatchLater() {
+    const { auth } = useAuthContext();
+    console.log(auth);
+    useEffect(() => {
+        console.log("Auth state updated:", auth);
+    }, [auth]);
+
+
     return (
         <div className="container mx-auto pt-24 pb-8">
             <header className="mb-8">

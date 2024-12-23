@@ -1,14 +1,15 @@
 "use server";
 
 
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import connectMongo from "@/lib/db";
 import { User } from "@/models/user-model";
 
 // Function to register a user and redirect
 export async function registerUser(formData) {
-    console.log(formData);
+    let redirectPath;
+    // console.log(formData);
 
     const fname = formData.get("fname");
     const lname = formData.get("lname");
@@ -27,14 +28,32 @@ export async function registerUser(formData) {
     };
 
     try {
+
         await connectMongo();
 
         // Insert user data into database
         await new User(userData).save();
-
         // Redirect after successful registration
-        redirect("/login");
+        // permanentRedirect("/login");
+        redirectPath = '/login'
     } catch (err) {
         console.error("Error registering user:", err);
     }
+    finally {
+        //Clear resources
+        if (redirectPath)
+            permanentRedirect(redirectPath)
+    }
 }
+export const getUsers = async () => {
+    try {
+        await connectMongo();
+
+        // get users
+        const users = await User.find();
+
+        return users;
+    } catch (err) {
+        console.log(err);
+    }
+};

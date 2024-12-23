@@ -4,7 +4,7 @@ import React from "react";
 
 export default async function LeftSide({ movieId }) {
   const movie = await getMoviesById(movieId);
-  console.log(movie);
+  // console.log(movie);
 
   return (
     <div class="md:w-1/3">

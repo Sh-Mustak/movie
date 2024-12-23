@@ -5,4 +5,5 @@ export const SearchContext = createContext();
 const useSearchContext = () => {
     return useContext(SearchContext);
 }
+
 export default useSearchContext

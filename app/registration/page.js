@@ -1,4 +1,5 @@
 import Register from '@/components/auth/register'
+import Link from 'next/link'
 import React from 'react'
 
 export default function Registration() {
@@ -14,7 +15,7 @@ export default function Registration() {
 
                     <div className="mt-6 text-moviedb-gray">
                         Already have an account?
-                        <a href="#" className="text-white hover:underline">Sign in</a>
+                        <Link href="/login" className="text-white hover:underline">Sign in</Link>
                     </div>
                 </div>
             </div>
