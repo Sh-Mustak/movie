@@ -1,43 +1,66 @@
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
 
-export default function ShareOnSocial() {
+export default function ShareOnSocial({ image, title, description }) {
+  const currentURL = typeof window !== "undefined" ? window.location.href : "";
+  const encodedURL = encodeURIComponent(currentURL);
+  const encodedTitle = encodeURIComponent(title);
+  const encodedDescription = encodeURIComponent(description);
+
   return (
-    <div className="mb-12 flex  items-center gap-12 ">
+    <div className="mb-12 flex items-center gap-12">
       <h3 className="text-gray-400 mb-2">Share on social media</h3>
       <div className="flex flex-wrap gap-4">
-        <button className="text-center cursor-pointer">
+        {/* Facebook Share */}
+        <Link
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodedURL}&quote=${encodedDescription}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-center cursor-pointer"
+        >
           <Image
             src="http://facebook.com/favicon.ico"
             alt="Facebook"
             className="w-8 h-8 rounded-full object-cover mb-2 mx-auto"
-            height={288}
-            width={192}
+            height={32}
+            width={32}
           />
           <p className="text-sm">Facebook</p>
-        </button>
+        </Link>
 
-        <button className="text-center cursor-pointer">
+        {/* Twitter Share */}
+        <Link
+          href={`https://twitter.com/intent/tweet?url=${encodedURL}&text=${encodedTitle}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-center cursor-pointer"
+        >
           <Image
             src="http://x.com/favicon.ico"
-            alt="Facebook"
+            alt="Twitter"
             className="w-8 h-8 rounded-full object-cover mb-2 mx-auto"
-            height={288}
-            width={192}
+            height={32}
+            width={32}
           />
           <p className="text-sm">X</p>
-        </button>
+        </Link>
 
-        <button className="text-center cursor-pointer">
+        {/* LinkedIn Share */}
+        <Link
+          href={`https://www.linkedin.com/shareArticle?url=${encodedURL}&title=${encodedTitle}&summary=${encodedDescription}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-center cursor-pointer"
+        >
           <Image
             src="http://linkedin.com/favicon.ico"
-            alt="Facebook"
+            alt="LinkedIn"
             className="w-8 h-8 rounded-full object-cover mb-2 mx-auto"
-            height={288}
-            width={192}
+            height={32}
+            width={32}
           />
-          <p className="text-sm">Linkedin</p>
-        </button>
+          <p className="text-sm">LinkedIn</p>
+        </Link>
       </div>
     </div>
   );

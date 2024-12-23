@@ -2,9 +2,7 @@ const TMDB_API_URL = process.env.BASE_URL;
 const TMDB_API_KEY = process.env.API_KEY;
 export async function getTrendingMovies() {
     try {
-        const response = await fetch('http://localhost:3000/api/trending',
-            { cache: 'no-store' }
-        ); // Avoid stale data
+        const response = await fetch('http://localhost:3000/api/trending'); // Avoid stale data
         if (!response.ok) {
             throw new Error('Failed to fetch trending movies');
         }
@@ -16,9 +14,7 @@ export async function getTrendingMovies() {
 }
 export async function getPopularMovies() {
     try {
-        const response = await fetch('http://localhost:3000/api/popular',
-            { cache: 'no-store' }
-        ); // Avoid stale data
+        const response = await fetch('http://localhost:3000/api/popular'); // Avoid stale data
         if (!response.ok) {
             throw new Error('Failed to fetch trending movies');
         }
@@ -30,9 +26,7 @@ export async function getPopularMovies() {
 }
 export async function getTopRatedMovies() {
     try {
-        const response = await fetch('http://localhost:3000/api/top_rated',
-            { cache: 'no-store' }
-        ); // Avoid stale data
+        const response = await fetch('http://localhost:3000/api/top_rated'); // Avoid stale data
         if (!response.ok) {
             throw new Error('Failed to fetch trending movies');
         }
