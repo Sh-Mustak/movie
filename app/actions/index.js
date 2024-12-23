@@ -1,8 +1,5 @@
 "use server";
-
-
 import { permanentRedirect } from "next/navigation";
-
 import connectMongo from "@/lib/db";
 import { User } from "@/models/user-model";
 import { Watchlist } from "@/models/watch-list";
@@ -110,7 +107,6 @@ export async function removeFromWatchlist(userId, movieId) {
         throw new Error("Error while removing from watchlist");
     }
 }
-
 
 export async function getUserWatchlist(userId) {
     try {

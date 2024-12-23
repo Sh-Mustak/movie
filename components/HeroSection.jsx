@@ -1,16 +1,9 @@
 "use client";
-import { getSearchMovies } from "@/utils/api";
-import SearchResults from "@/app/searchresult/page";
-import useSearchContext from "@/app/context/Context";
-import { useEffect } from "react";
 
+import SearchResults from "@/app/searchresult/page";
 export default function HeroSection() {
   const movies = [];
-  const { searchValue } = useSearchContext();
-  // Fetch movies
-  // console.log(searchValue);
 
-  // Return the appropriate UI based on movie data
   return movies.length > 0 ? (
     <SearchResults movies={movies} />
   ) : (
@@ -32,7 +25,7 @@ export default function HeroSection() {
         <p id="heroOverview" className="text-lg max-w-2xl mb-4 text-white">
           Eddie and Venom are on the run. Hunted by both of their worlds and
           with the net closing in, the duo are forced into a devastating
-          decision that will bring the curtains down on Venom and Eddie's last
+          decision that will bring the curtains down on Venom and Eddies last
           dance.
         </p>
         <button className="bg-white text-black px-8 py-2 rounded-lg font-bold hover:bg-opacity-80">
