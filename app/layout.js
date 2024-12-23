@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import AuthProvider from "@/components/provider/AuthProvider";
 import SearchProvider from "@/components/provider/SearchProvider";
+import { headers } from "next/headers";
 
 
 const geistSans = localFont({
@@ -22,6 +23,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const header = headers();
   return (
     <html lang="en">
       <body
