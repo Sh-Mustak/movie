@@ -1,39 +1,43 @@
 const TMDB_API_URL = process.env.BASE_URL;
 const TMDB_API_KEY = process.env.API_KEY;
+const FETCH_DATA = process.env.LOCAL_URL;
 export async function getTrendingMovies() {
     try {
-        const response = await fetch('http://localhost:3000/api/trending'); // Avoid stale data
+        const response = await fetch(`${FETCH_DATA}/trending`); // Avoid stale data
         if (!response.ok) {
-            throw new Error('Failed to fetch trending movies');
+            // throw new Error('Failed to fetch trending movies');
+            return ("")
         }
         return response.json();
     } catch (error) {
         console.error('Error in getTrendingMovies:', error);
-        throw error;
+        // throw error;
     }
 }
 export async function getPopularMovies() {
     try {
-        const response = await fetch('http://localhost:3000/api/popular'); // Avoid stale data
+        const response = await fetch(`${FETCH_DATA}/popular`); // Avoid stale data
         if (!response.ok) {
-            throw new Error('Failed to fetch trending movies');
+            // throw new Error('Failed to fetch trending movies');
+            return ("")
         }
         return response.json();
     } catch (error) {
         console.error('Error in getTrendingMovies:', error);
-        throw error;
+        // throw error;
     }
 }
 export async function getTopRatedMovies() {
     try {
-        const response = await fetch('http://localhost:3000/api/top_rated'); // Avoid stale data
+        const response = await fetch(`${FETCH_DATA}/top_rated`); // Avoid stale data
         if (!response.ok) {
-            throw new Error('Failed to fetch trending movies');
+            // throw new Error('Failed to fetch trending movies');
+            return ("")
         }
         return response.json();
     } catch (error) {
         console.error('Error in getTrendingMovies:', error);
-        throw error;
+        // throw error;
     }
 }
 export const getMoviesById = async (id) => {
