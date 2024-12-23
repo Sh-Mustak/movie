@@ -3,7 +3,7 @@ const TMDB_API_KEY = process.env.API_KEY;
 const FETCH_DATA = process.env.LOCAL_URL;
 export async function getTrendingMovies() {
     try {
-        const response = await fetch(`${FETCH_DATA}/trending`); // Avoid stale data
+        const response = await fetch(`${FETCH_DATA}/trending`);
         if (!response.ok) {
             // throw new Error('Failed to fetch trending movies');
             return ("")
