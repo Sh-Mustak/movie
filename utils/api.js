@@ -6,12 +6,13 @@ export async function getTrendingMovies() {
         const response = await fetch(`${FETCH_DATA}/trending`);
         if (!response.ok) {
             // throw new Error('Failed to fetch trending movies');
-            return ("")
+            return ({})
         }
         return response.json();
     } catch (error) {
         console.error('Error in getTrendingMovies:', error);
         // throw error;
+        return ({})
     }
 }
 export async function getPopularMovies() {
@@ -19,12 +20,12 @@ export async function getPopularMovies() {
         const response = await fetch(`${FETCH_DATA}/popular`); // Avoid stale data
         if (!response.ok) {
             // throw new Error('Failed to fetch trending movies');
-            return ("")
+            return ({})
         }
         return response.json();
     } catch (error) {
         console.error('Error in getTrendingMovies:', error);
-        // throw error;
+        return ({})
     }
 }
 export async function getTopRatedMovies() {
@@ -32,12 +33,12 @@ export async function getTopRatedMovies() {
         const response = await fetch(`${FETCH_DATA}/top_rated`); // Avoid stale data
         if (!response.ok) {
             // throw new Error('Failed to fetch trending movies');
-            return ("")
+            return ({})
         }
         return response.json();
     } catch (error) {
         console.error('Error in getTrendingMovies:', error);
-        // throw error;
+        return ({})
     }
 }
 export const getMoviesById = async (id) => {
