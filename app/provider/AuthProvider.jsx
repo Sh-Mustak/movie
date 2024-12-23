@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Save auth state to localStorage whenever it changes
     localStorage.setItem("auth", JSON.stringify(auth));
-    console.log("AuthProvider state:", auth);
+    // console.log("AuthProvider state:", auth);
   }, [auth]);
 
   return (

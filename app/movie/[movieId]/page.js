@@ -2,9 +2,19 @@ import Backround from '@/components/movieDetails/Backround'
 import LeftSide from '@/components/movieDetails/LeftSide'
 import MoreLikeThis from '@/components/movieDetails/MoreLikeThis/MoreLikeThis'
 import RightSide from '@/components/movieDetails/RightSide'
-import React from 'react'
+import { getMoviesById } from '@/utils/api'
+export async function generateMetadata({ params }) {
+    const movie = await getMoviesById(params.id)
+    return {
+        title: movie.title,
+    }
+}
 
-export default function MovieDetails({ params: { movieId } }) {
+
+export default async function MovieDetails({ params: { movieId } }) {
+
+
+
     return (
         <>
             <div id="movieDetails" class="min-h-screen pt-20 mb-8">

@@ -56,7 +56,7 @@ export default async function RightSide({ movieId }) {
         </div>
       </div>
 
-      <AddToWatch />
+      <AddToWatch movieId={movieId} />
       <ShareOnSocial />
     </div>
   );

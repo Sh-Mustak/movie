@@ -3,7 +3,7 @@ import React from "react";
 
 export default function ShareOnSocial() {
   return (
-    <div className="mb-6">
+    <div className="mb-12 flex  items-center gap-12 ">
       <h3 className="text-gray-400 mb-2">Share on social media</h3>
       <div className="flex flex-wrap gap-4">
         <button className="text-center cursor-pointer">

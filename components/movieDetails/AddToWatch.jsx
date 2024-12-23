@@ -1,20 +1,54 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PlusIcon from "../svgIcon/PlusIcon";
 import AddedIcon from "../svgIcon/AddedIcon";
 import useAuthContext from "@/app/context/AuthContext";
 import { useRouter } from "next/navigation";
+import {
+  addToWatchlist,
+  removeFromWatchlist,
+  fetchUserWatchlist,
+} from "@/app/actions"; // Add fetchUserWatchlist
 
-export default function AddToWatch() {
+export default function AddToWatch({ movieId }) {
   const router = useRouter();
   const { auth } = useAuthContext();
-  const [watchList, setWatchList] = useState(false); // Only use component state
+  const [watchList, setWatchList] = useState(false); // Component state for watchlist
 
-  const handleList = () => {
+  // Fetch user's watchlist and check if the movie is already added
+  useEffect(() => {
+    const checkWatchlist = async () => {
+      if (auth.user) {
+        try {
+          const userWatchlist = await fetchUserWatchlist(auth.user._id);
+          if (userWatchlist?.includes(movieId)) {
+            setWatchList(true); // Set state to true if movie exists in the watchlist
+          }
+        } catch (error) {
+          console.error("Error fetching watchlist:", error);
+        }
+      }
+    };
+
+    checkWatchlist();
+  }, [auth.user, movieId]); // Re-run if user or movieId changes
+
+  const handleList = async () => {
     if (!auth.user) {
       router.push("/login"); // Redirect to login if not authenticated
     } else {
-      setWatchList((prev) => !prev); // Toggle watchList state on click
+      try {
+        if (!watchList) {
+          // Add to watchlist
+          await addToWatchlist(auth.user._id, movieId);
+        } else {
+          // Remove from watchlist
+          await removeFromWatchlist(auth.user._id, movieId);
+        }
+        setWatchList((prev) => !prev); // Toggle state
+      } catch (error) {
+        console.error("Error updating watchlist:", error);
+      }
     }
   };
 
