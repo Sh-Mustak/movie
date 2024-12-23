@@ -1,4 +1,5 @@
-import Register from '@/components/auth/register'
+
+import Register from '@/components/auth/Register'
 import Link from 'next/link'
 import React from 'react'
 
