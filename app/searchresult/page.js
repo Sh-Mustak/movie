@@ -7,9 +7,8 @@ import Link from "next/link";
 import { getSearchMovies } from "@/utils/api";
 
 export default function SearchResults({ searchValue }) {
-    // const movies = await getSearchMovies(searchValue);
-    // console.log(movies[0].title);
-    const movies = searchValue.length > 0 ? [...searchValue] : [];
+
+    const movies = searchValue?.length > 0 ? [...searchValue] : [];
     return (
         <main className="container mx-auto px-4 pt-24 pb-8">
             {/* Search Stats */}

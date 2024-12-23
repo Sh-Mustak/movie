@@ -1,6 +1,6 @@
 "use client";
+import { SearchContext } from "@/app/context/Context";
 import { useState } from "react";
-import { SearchContext } from "../context/Context";
 
 const SearchProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState("");

@@ -1,18 +1,25 @@
 "use client";
+
+import { AuthContext } from "@/app/context/AuthContext";
 import { useEffect, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
 
 const AuthProvider = ({ children }) => {
-  const initialAuthState = JSON.parse(localStorage.getItem("auth")) || {
+  const [auth, setAuth] = useState({
     isAuthenticated: false,
     user: null,
-  };
-  const [auth, setAuth] = useState(initialAuthState);
+  });
+
+  useEffect(() => {
+    // Initialize the auth state from localStorage
+    const storedAuth = localStorage.getItem("auth");
+    if (storedAuth) {
+      setAuth(JSON.parse(storedAuth));
+    }
+  }, []); // Runs once after the component mounts
 
   useEffect(() => {
     // Save auth state to localStorage whenever it changes
     localStorage.setItem("auth", JSON.stringify(auth));
-    // console.log("AuthProvider state:", auth);
   }, [auth]);
 
   return (
