@@ -138,6 +138,18 @@ export async function fetchUserWatchlist(userId) {
         throw new Error("Failed to fetch user watchlist");
     }
 }
+export const getUsers = async () => {
+    try {
+        await connectMongo();
+
+        // get users
+        const users = await User.find();
+
+        return users;
+    } catch (err) {
+        console.log(err);
+    }
+};
 export async function getMoviesById(movieId) {
     console.log("Fetching movie with ID:", movieId);
     try {
